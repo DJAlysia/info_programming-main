@@ -1,105 +1,105 @@
-// Çì´õ ÆÄÀÏ Æ÷ÇÔ
+// í—¤ë” íŒŒì¼ í¬í•¨
 #include <stdio.h>
 #include <string.h>
 
-// ÇÊ¿äÇÑ »ó¼ö
-#define MAX_LEN 10      // ¼±ÅÃ À½·á ÃÖ´ë°³¼ö
-#define True 1          // Âü
-#define False 0         // °ÅÁþ
+// í•„ìš”í•œ ìƒìˆ˜
+#define MAX_LEN 10      // ì„ íƒ ìŒë£Œ ìµœëŒ€ê°œìˆ˜
+#define True 1          // ì°¸
+#define False 0         // ê±°ì§“
 
-// ¸Þ´º ¹øÈ£
-#define Add 1           // À½·á Ãß°¡
-#define Remove 2        // À½·á »èÁ¦
-#define Check 3         // ¼±ÅÃ À½·á È®ÀÎ
-#define Order 4         // ¼±ÅÃ À½·á ÁÖ¹®
-#define End 0           // ÇÁ·Î±×·¥ Á¾·á
+// ë©”ë‰´ ë²ˆí˜¸
+#define Add 1           // ìŒë£Œ ì¶”ê°€
+#define Remove 2        // ìŒë£Œ ì‚­ì œ
+#define Check 3         // ì„ íƒ ìŒë£Œ í™•ì¸
+#define Order 4         // ì„ íƒ ìŒë£Œ ì£¼ë¬¸
+#define End 0           // í”„ë¡œê·¸ëž¨ ì¢…ë£Œ
 
-// À½·á »óÇ° ÄÚµå
+// ìŒë£Œ ìƒí’ˆ ì½”ë“œ
 #define Americano 1
 #define CafeLatte 2
 #define Juice 3
 #define Icecream 4
 #define Cancel 0
 
-// À½·á »óÇ° °¡°Ý
+// ìŒë£Œ ìƒí’ˆ ê°€ê²©
 #define Americano_Price 2000
 #define CafeLatte_Price 3000
 #define Juice_Price 3500
 #define Icecream_Price 4000
 
-// ¼±ÅÃ À½·á ±¸Á¶Ã¼ Á¤ÀÇ
+// ì„ íƒ ìŒë£Œ êµ¬ì¡°ì²´ ì •ì˜
 typedef struct {
-    char *foods[MAX_LEN];       // »óÇ° ¸ñ·Ï (ÃÖ´ë10°³)
-    int idxOfFoods;             // »óÇ° ¹øÈ£
-    int totalPrice;             // ÀüÃ¼ °¡°Ý
+    char *foods[MAX_LEN];       // ìƒí’ˆ ëª©ë¡ (ìµœëŒ€10ê°œ)
+    int idxOfFoods;             // ìƒí’ˆ ë²ˆí˜¸
+    int totalPrice;             // ì „ì²´ ê°€ê²©
 } ItemList;
 
-// ÇÔ¼ö ¼±¾ð
-void select();                              // ¸ÞÀÎ ¸Þ´º
-void showMenu();                            // À½·á ¸Þ´º
-void addMenu(ItemList *itemList);           // À½·á Ãß°¡
-void addMenuProcess(ItemList *itemList, char* menu, int price);   // À½·á Ãß°¡ Ã³¸®
-int removeItem(ItemList *itemList, char* itemToRemove);           // À½·á »èÁ¦
-void removeMenu(ItemList *itemList);                              // »èÁ¦ Ç×¸ñ ¼±ÅÃ
-void removeMenuProcess(ItemList * itemList, char* itemToRemove, int removePrice);  // À½·á »èÁ¦ Ã³¸®
-void checkMenu(ItemList *itemList);         // ¸Þ´º È®ÀÎ
-int order(ItemList *itemList);              // ÁÖ¹®
+// í•¨ìˆ˜ ì„ ì–¸
+void select();                              // ë©”ì¸ ë©”ë‰´
+void showMenu();                            // ìŒë£Œ ë©”ë‰´
+void addMenu(ItemList *itemList);           // ìŒë£Œ ì¶”ê°€
+void addMenuProcess(ItemList *itemList, char* menu, int price);   // ìŒë£Œ ì¶”ê°€ ì²˜ë¦¬
+int removeItem(ItemList *itemList, char* itemToRemove);           // ìŒë£Œ ì‚­ì œ
+void removeMenu(ItemList *itemList);                              // ì‚­ì œ í•­ëª© ì„ íƒ
+void removeMenuProcess(ItemList * itemList, char* itemToRemove, int removePrice);  // ìŒë£Œ ì‚­ì œ ì²˜ë¦¬
+void checkMenu(ItemList *itemList);         // ë©”ë‰´ í™•ì¸
+int order(ItemList *itemList);              // ì£¼ë¬¸
 
 
 int main(void) {
 
-    // º¯¼ö ¼±¾ð ¹× ÃÊ±âÈ­
+    // ë³€ìˆ˜ ì„ ì–¸ ë° ì´ˆê¸°í™”
     ItemList itemList;
     itemList.idxOfFoods = 0;
     itemList.totalPrice = 0;
-    int choice;         // ¼±ÅÃÇÑ ¸Þ´º ¹øÈ£
+    int choice;         // ì„ íƒí•œ ë©”ë‰´ ë²ˆí˜¸
 
     while(1) {
-        // ¸ÞÀÎ ¸Þ´º Ãâ·Â
+        // ë©”ì¸ ë©”ë‰´ ì¶œë ¥
         select();
 
-        // ¸Þ´º ¹øÈ£ ÀÔ·Â
-        printf("¸Þ´º ¹øÈ£ : ");
+        // ë©”ë‰´ ë²ˆí˜¸ ìž…ë ¥
+        printf("ë©”ë‰´ ë²ˆí˜¸ : ");
         scanf("%d", &choice);
 
-        // ¸Þ´º ¼±ÅÃ
+        // ë©”ë‰´ ì„ íƒ
         switch (choice) {
-            // 1. À½·á Ãß°¡
+            // 1. ìŒë£Œ ì¶”ê°€
             case Add:  
                         addMenu(&itemList);
                         printf("\n\n");
                         break;
-            // 2. À½·á »èÁ¦
+            // 2. ìŒë£Œ ì‚­ì œ
             case Remove:  
                         removeMenu(&itemList);
                         printf("\n\n");
                         break;
-            // 3. ¼±ÅÃ À½·á È®ÀÎ
+            // 3. ì„ íƒ ìŒë£Œ í™•ì¸
             case Check:  
                         checkMenu(&itemList);
                         printf("\n\n");
                         break;
-            // 4. ¼±ÅÃ À½·á ÁÖ¹®
+            // 4. ì„ íƒ ìŒë£Œ ì£¼ë¬¸
             case Order:  
                         if( order(&itemList) ) {
-                            // ÁÖ¹® °áÁ¤
-                            puts("ÁÖ¹® ¿Ï·á!\n À½·á¸¦ ÁØºñÇØµå¸®°Ú½À´Ï´Ù.");
-                            puts("Àá½Ã¸¸ ±â´Ù·ÁÁÖ¼¼¿ä!");
+                            // ì£¼ë¬¸ ê²°ì •
+                            puts("ì£¼ë¬¸ ì™„ë£Œ!\n ìŒë£Œë¥¼ ì¤€ë¹„í•´ë“œë¦¬ê² ìŠµë‹ˆë‹¤.");
+                            puts("ìž ì‹œë§Œ ê¸°ë‹¤ë ¤ì£¼ì„¸ìš”!");
                             printf("\n\n");
                         } else {
-                            // ÁÖ¹® Ãë¼Ò
-                            puts("ÁÖ¹® º¸·ù!");
+                            // ì£¼ë¬¸ ì·¨ì†Œ
+                            puts("ì£¼ë¬¸ ë³´ë¥˜!");
                             printf("\n\n");
                         }
                         printf("\n\n");
                         break;
-            // 0. ÇÁ·Î±×·¥ Á¾·á
+            // 0. í”„ë¡œê·¸ëž¨ ì¢…ë£Œ
             case End:  
-                        // ÇÔ¼ö È£Ãâ
-                        puts("ÇÁ·Î±×·¥À» Á¾·áÇÕ´Ï´Ù.");
+                        // í•¨ìˆ˜ í˜¸ì¶œ
+                        puts("í”„ë¡œê·¸ëž¨ì„ ì¢…ë£Œí•©ë‹ˆë‹¤.");
                         return 0;
             default:    
-                        puts("(0~4)¹øÀÇ ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä!");
+                        puts("(0~4)ë²ˆì˜ ë²ˆí˜¸ë¥¼ ìž…ë ¥í•´ì£¼ì„¸ìš”!");
                         break;
         }
 
@@ -109,93 +109,93 @@ int main(void) {
 }
 
 
-// [ ¸Þ´º °ü·Ã ÇÔ¼ö Á¤ÀÇ ]
+// [ ë©”ë‰´ ê´€ë ¨ í•¨ìˆ˜ ì •ì˜ ]
 void select() {
-    /* ¸ÞÀÎ ¸Þ´º¸¦ Ãâ·ÂÇÏ´Â ÇÔ¼ö */
-    puts("***** SBS¾ÆÄ«µ¥¹Ì Ä«Æä *****");
-    puts("*** 1. À½·á Ãß°¡");
-    puts("*** 2. À½·á »èÁ¦");
-    puts("*** 3. ¼±ÅÃ À½·á È®ÀÎ");
-    puts("*** 4. ¼±ÅÃ À½·á ÁÖ¹®");
-    puts("*** 0. ÇÁ·Î±×·¥ Á¾·á");
+    /* ë©”ì¸ ë©”ë‰´ë¥¼ ì¶œë ¥í•˜ëŠ” í•¨ìˆ˜ */
+    puts("***** SBSì•„ì¹´ë°ë¯¸ ì¹´íŽ˜ *****");
+    puts("*** 1. ìŒë£Œ ì¶”ê°€");
+    puts("*** 2. ìŒë£Œ ì‚­ì œ");
+    puts("*** 3. ì„ íƒ ìŒë£Œ í™•ì¸");
+    puts("*** 4. ì„ íƒ ìŒë£Œ ì£¼ë¬¸");
+    puts("*** 0. í”„ë¡œê·¸ëž¨ ì¢…ë£Œ");
     puts("***********************************");
 }
 
 void showMenu() {
-    /* ÁÖ¹®ÇÒ ¼ö ÀÖ´Â ¸Þ´º¸¦ Ãâ·ÂÇÏ´Â ÇÔ¼ö */
+    /* ì£¼ë¬¸í•  ìˆ˜ ìžˆëŠ” ë©”ë‰´ë¥¼ ì¶œë ¥í•˜ëŠ” í•¨ìˆ˜ */
     puts("***********************************");
-    puts("*** 1. ¾Æ¸Þ¸®Ä«³ë (2000)");
-    puts("*** 2. Ä«Æä¶ó¶¼ (3000)");
-    puts("*** 3. ÁÖ½º (3500)");
-    puts("*** 4. ¾ÆÀÌ½ºÅ©¸² (4000)");
-    puts("*** 0. Ãë¼Ò");
+    puts("*** 1. ì•„ë©”ë¦¬ì¹´ë…¸ (2000)");
+    puts("*** 2. ì¹´íŽ˜ë¼ë–¼ (3000)");
+    puts("*** 3. ì£¼ìŠ¤ (3500)");
+    puts("*** 4. ì•„ì´ìŠ¤í¬ë¦¼ (4000)");
+    puts("*** 0. ì·¨ì†Œ");
     puts("***********************************");
 }
 
-// À½·á Ãß°¡
+// ìŒë£Œ ì¶”ê°€
 void addMenu(ItemList *itemList) {
     /*
-        »ç¿ëÀÚ°¡ Ãß°¡ÇÒ À½·á¸¦ ¼±ÅÃÇÏ¸é,
-        - ItemList ±¸Á¶Ã¼ÀÇ ¸â¹ö ¹è¿­¿¡ ÇØ´ç À½·á¸¦ Ãß°¡
-        - À½·á¼ö ÃÑ °³¼ö¸¦ 1 Áõ°¡
-        - ÇØ´ç À½·á¼öÀÇ °¡°ÝÀ» ÀüÃ¼ °¡°Ý¿¡ ´õÇÔ  
+        ì‚¬ìš©ìžê°€ ì¶”ê°€í•  ìŒë£Œë¥¼ ì„ íƒí•˜ë©´,
+        - ItemList êµ¬ì¡°ì²´ì˜ ë©¤ë²„ ë°°ì—´ì— í•´ë‹¹ ìŒë£Œë¥¼ ì¶”ê°€
+        - ìŒë£Œìˆ˜ ì´ ê°œìˆ˜ë¥¼ 1 ì¦ê°€
+        - í•´ë‹¹ ìŒë£Œìˆ˜ì˜ ê°€ê²©ì„ ì „ì²´ ê°€ê²©ì— ë”í•¨  
    */
-    // À½·á¼ö´Â ÃÖ´ë 10°³±îÁö Á¦ÇÑ
+    // ìŒë£Œìˆ˜ëŠ” ìµœëŒ€ 10ê°œê¹Œì§€ ì œí•œ
     if ( itemList->idxOfFoods >= MAX_LEN ) {
-        puts("´õ ÀÌ»ó Ãß°¡ÇÒ ¼ö ¾ø½À´Ï´Ù. (ÃÖ´ë 10°³)");
+        puts("ë” ì´ìƒ ì¶”ê°€í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤. (ìµœëŒ€ 10ê°œ)");
         return;
     }
 
     int choice;
     int i;
-    // À½·á ¸Þ´º Ãâ·Â
+    // ìŒë£Œ ë©”ë‰´ ì¶œë ¥
     showMenu();
-    printf("¸Þ´º ¹øÈ£ : ");
+    printf("ë©”ë‰´ ë²ˆí˜¸ : ");
     scanf("%d", &choice);
 
     switch (choice) {
         case Americano:
-                        addMenuProcess(itemList, "¾Æ¸Þ¸®Ä«³ë", Americano_Price);
+                        addMenuProcess(itemList, "ì•„ë©”ë¦¬ì¹´ë…¸", Americano_Price);
                         break;
         case CafeLatte:
-                        addMenuProcess(itemList, "Ä«Æä¶ó¶¼", CafeLatte_Price);
+                        addMenuProcess(itemList, "ì¹´íŽ˜ë¼ë–¼", CafeLatte_Price);
                         break;
         case Juice:
-                        addMenuProcess(itemList, "ÁÖ½º", Juice_Price);
+                        addMenuProcess(itemList, "ì£¼ìŠ¤", Juice_Price);
                         break;
         case Icecream:
-                        addMenuProcess(itemList, "¾ÆÀÌ½ºÅ©¸²", Icecream_Price);
+                        addMenuProcess(itemList, "ì•„ì´ìŠ¤í¬ë¦¼", Icecream_Price);
                         break;
         case Cancel:
-                        puts("Ãë¼ÒÇÕ´Ï´Ù.");
+                        puts("ì·¨ì†Œí•©ë‹ˆë‹¤.");
                         break;
         default:        
-                        puts("Àß¸øµÈ ÀÔ·ÂÀÔ´Ï´Ù.");
+                        puts("ìž˜ëª»ëœ ìž…ë ¥ìž…ë‹ˆë‹¤.");
                         break;
     }
 }
 
 
-// À½·á Ãß°¡ Ã³¸® ÇÔ¼ö
+// ìŒë£Œ ì¶”ê°€ ì²˜ë¦¬ í•¨ìˆ˜
 void addMenuProcess(ItemList *itemList, char* menu, int price) {
     int i;
-    printf("%s Ãß°¡", menu);
-    i = itemList->idxOfFoods;       // ÇöÀç ¾ÆÀÌÅÛÀÇ index
-    itemList->foods[i] = menu;      // ¼±ÅÃ ¸ñ·Ï¿¡ ¸Þ´º Ãß°¡
-    itemList->idxOfFoods++;         // ÃÑ °³¼ö + 1
-    itemList->totalPrice += price;  // ÀüÃ¼°¡°Ý + ÇØ´ç À½·á °¡°Ý
+    printf("%s ì¶”ê°€", menu);
+    i = itemList->idxOfFoods;       // í˜„ìž¬ ì•„ì´í…œì˜ index
+    itemList->foods[i] = menu;      // ì„ íƒ ëª©ë¡ì— ë©”ë‰´ ì¶”ê°€
+    itemList->idxOfFoods++;         // ì´ ê°œìˆ˜ + 1
+    itemList->totalPrice += price;  // ì „ì²´ê°€ê²© + í•´ë‹¹ ìŒë£Œ ê°€ê²©
 }
 
-// »èÁ¦
-// - ±¸Á¶Ã¼ ¸â¹ö ¹è¿­¿¡¼­ Ç×¸ñÀ» »èÁ¦
+// ì‚­ì œ
+// - êµ¬ì¡°ì²´ ë©¤ë²„ ë°°ì—´ì—ì„œ í•­ëª©ì„ ì‚­ì œ
 int removeItem(ItemList *itemList, char* itemToRemove) {
-    /*  »ç¿ëÀÚ°¡ »èÁ¦ÇÒ À½·á¸¦ ¼±ÅÃÇÏ¸é,
-        ItemList ±¸Á¶Ã¼ÀÇ ¸â¹ö ¹è¿­¿¡¼­ ÇØ´ç À½·á¸¦ »èÁ¦
+    /*  ì‚¬ìš©ìžê°€ ì‚­ì œí•  ìŒë£Œë¥¼ ì„ íƒí•˜ë©´,
+        ItemList êµ¬ì¡°ì²´ì˜ ë©¤ë²„ ë°°ì—´ì—ì„œ í•´ë‹¹ ìŒë£Œë¥¼ ì‚­ì œ
     */
-    // itemToRemove : »èÁ¦ÇÒ À½·á ÀÌ¸§
+    // itemToRemove : ì‚­ì œí•  ìŒë£Œ ì´ë¦„
 
-    int i, rmIdx = -1;  // »èÁ¦ÇÒ ÀÎµ¦½º
-    // »èÁ¦ÇÒ À½·á ÀÌ¸§°ú ¹è¿­ÀÇ À½·áÀÌ¸§ÀÌ °°ÀºÁö È®ÀÎ
+    int i, rmIdx = -1;  // ì‚­ì œí•  ì¸ë±ìŠ¤
+    // ì‚­ì œí•  ìŒë£Œ ì´ë¦„ê³¼ ë°°ì—´ì˜ ìŒë£Œì´ë¦„ì´ ê°™ì€ì§€ í™•ì¸
     for ( i = 0; i < itemList->idxOfFoods; i++) {
         if( !strcmp(itemList->foods[i], itemToRemove) ) {
             rmIdx = i;
@@ -203,107 +203,107 @@ int removeItem(ItemList *itemList, char* itemToRemove) {
         }
     }
 
-    printf("»èÁ¦ÇÒ rmIdx : %d \n", rmIdx );
+    printf("ì‚­ì œí•  rmIdx : %d \n", rmIdx );
 
-    // »èÁ¦ÇÒ Ç×¸ñÀÌ ÀÖÀ¸¸é,
+    // ì‚­ì œí•  í•­ëª©ì´ ìžˆìœ¼ë©´,
     if( rmIdx >= 0 ) {
-        // µÚ¿¡¼­ºÎÅÍ »èÁ¦ Ç×¸ñÀÌ ÀÖ´Â ¿ä¼Ò±îÁö ÇÏ³ª¾¿ ¾ÕÀ¸·Î ´ç±ä´Ù.
+        // ë’¤ì—ì„œë¶€í„° ì‚­ì œ í•­ëª©ì´ ìžˆëŠ” ìš”ì†Œê¹Œì§€ í•˜ë‚˜ì”© ì•žìœ¼ë¡œ ë‹¹ê¸´ë‹¤.
         for ( i = rmIdx; i < itemList->idxOfFoods - 1; i++) {
-            itemList->foods[i] = itemList->foods[i+1];      // ÇÏ³ª¾¿ ´ç°ÜÁü
+            itemList->foods[i] = itemList->foods[i+1];      // í•˜ë‚˜ì”© ë‹¹ê²¨ì§
         }
         
         if( rmIdx == 0 && itemList->idxOfFoods ) {
             itemList->foods[0] = NULL;
         }
 
-        printf("%s ¸¦ »èÁ¦Çß½À´Ï´Ù.\n", itemToRemove);
+        printf("%s ë¥¼ ì‚­ì œí–ˆìŠµë‹ˆë‹¤.\n", itemToRemove);
         return True;
     } 
     else {
-        // »èÁ¦ÇÒ Ç×¸ñÀÌ ¾øÀ» ¶§
-        printf("»èÁ¦ÇÒ Ç×¸ñÀÌ ¾ø½À´Ï´Ù.\n");
+        // ì‚­ì œí•  í•­ëª©ì´ ì—†ì„ ë•Œ
+        printf("ì‚­ì œí•  í•­ëª©ì´ ì—†ìŠµë‹ˆë‹¤.\n");
         return False;
     }
 
 }
 
-// »èÁ¦ Ç×¸ñ ¼±ÅÃ ÇÔ¼ö
+// ì‚­ì œ í•­ëª© ì„ íƒ í•¨ìˆ˜
 void removeMenu(ItemList *itemList) {
-    /*  »ç¿ëÀÚ°¡ »èÁ¦ÇÒ À½·á¸¦ ¼±ÅÃÇÏ¸é,
-        - À½·á°¡ ÇÏ³ªµµ ¼±ÅÃµÇÁö ¾ÊÀº °æ¿ì, -> "´õ ÀÌ»ó »èÁ¦ÇÒ ¼ö ¾ø½À´Ï´Ù."
-        - ¼±ÅÃµÈ À½·á°¡ Á¸ÀçÇÑ´Ù¸é(»èÁ¦°¡´É) -> removeItem() ÇÔ¼ö¸¦ È£ÃâÇÏ¿© »èÁ¦ ¿äÃ»
+    /*  ì‚¬ìš©ìžê°€ ì‚­ì œí•  ìŒë£Œë¥¼ ì„ íƒí•˜ë©´,
+        - ìŒë£Œê°€ í•˜ë‚˜ë„ ì„ íƒë˜ì§€ ì•Šì€ ê²½ìš°, -> "ë” ì´ìƒ ì‚­ì œí•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤."
+        - ì„ íƒëœ ìŒë£Œê°€ ì¡´ìž¬í•œë‹¤ë©´(ì‚­ì œê°€ëŠ¥) -> removeItem() í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•˜ì—¬ ì‚­ì œ ìš”ì²­
     */
 
     if( itemList->idxOfFoods <= 0 ) {
-        puts("´õ ÀÌ»ó »èÁ¦ÇÒ ¼ö ¾ø½À´Ï´Ù.");
+        puts("ë” ì´ìƒ ì‚­ì œí•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
         return;
     }
 
     int choice;
     showMenu();       
-    printf("¸Þ´º ¹øÈ£ : ");
+    printf("ë©”ë‰´ ë²ˆí˜¸ : ");
     scanf("%d" ,&choice);
 
     switch (choice) {
         case Americano:
-                        removeMenuProcess(itemList, "¾Æ¸Þ¸®Ä«³ë", Americano_Price);
+                        removeMenuProcess(itemList, "ì•„ë©”ë¦¬ì¹´ë…¸", Americano_Price);
                         break;
         case CafeLatte:
-                        removeMenuProcess(itemList, "Ä«Æä¶ó¶¼", CafeLatte_Price);
+                        removeMenuProcess(itemList, "ì¹´íŽ˜ë¼ë–¼", CafeLatte_Price);
                         break;
         case Juice:
-                        removeMenuProcess(itemList, "ÁÖ½º", Juice_Price);
+                        removeMenuProcess(itemList, "ì£¼ìŠ¤", Juice_Price);
                         break;
         case Icecream:
-                        removeMenuProcess(itemList, "¾ÆÀÌ½ºÅ©¸²", Icecream_Price);
+                        removeMenuProcess(itemList, "ì•„ì´ìŠ¤í¬ë¦¼", Icecream_Price);
                         break;
         case Cancel:
-                        puts("Ãë¼ÒÇÕ´Ï´Ù.");
+                        puts("ì·¨ì†Œí•©ë‹ˆë‹¤.");
                         break;
         default:        
-                        puts("Àß¸øµÈ ÀÔ·ÂÀÔ´Ï´Ù.");
+                        puts("ìž˜ëª»ëœ ìž…ë ¥ìž…ë‹ˆë‹¤.");
                         break;
     }
 }
 
-// À½·á »èÁ¦ Ã³¸® ÇÔ¼ö
+// ìŒë£Œ ì‚­ì œ ì²˜ë¦¬ í•¨ìˆ˜
 void removeMenuProcess(ItemList * itemList, char* itemToRemove, int removePrice) {
-    // »èÁ¦ÇÒ À½·áÀÇ ÀÌ¸§¿¡ ¸Â°Ô removeItem() ÇÔ¼ö¸¦ È£ÃâÇÏ¿© »èÁ¦ Ã³¸®
+    // ì‚­ì œí•  ìŒë£Œì˜ ì´ë¦„ì— ë§žê²Œ removeItem() í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•˜ì—¬ ì‚­ì œ ì²˜ë¦¬
     if( removeItem(itemList, itemToRemove) ) {
-        // »èÁ¦°¡ µÇ¾ú´Ù¸é,
-        // - (ÀüÃ¼ °¡°Ý) - (»èÁ¦ÇÑ À½·á°¡°Ý)
+        // ì‚­ì œê°€ ë˜ì—ˆë‹¤ë©´,
+        // - (ì „ì²´ ê°€ê²©) - (ì‚­ì œí•œ ìŒë£Œê°€ê²©)
         itemList->totalPrice -= removePrice;
-        // - Ãß°¡µÈ À½·á °³¼ö - 1
+        // - ì¶”ê°€ëœ ìŒë£Œ ê°œìˆ˜ - 1
         (itemList->idxOfFoods)--;
     }
 }
 
-// ¸Þ´º È®ÀÎ ÇÔ¼ö
+// ë©”ë‰´ í™•ì¸ í•¨ìˆ˜
 void checkMenu(ItemList *itemList) {
-    // »ç¿ëÀÚ°¡ ¼±ÅÃÇÑ À½·áÀÇ ÀüÃ¼ '°¡°Ý'°ú '¸ñ·Ï'À» Ãâ·ÂÇÑ´Ù.
+    // ì‚¬ìš©ìžê°€ ì„ íƒí•œ ìŒë£Œì˜ ì „ì²´ 'ê°€ê²©'ê³¼ 'ëª©ë¡'ì„ ì¶œë ¥í•œë‹¤.
     int i = 0;
-    printf("ÁÖ¹® ÀüÃ¼ °¡°Ý : %d \n", itemList->totalPrice);
+    printf("ì£¼ë¬¸ ì „ì²´ ê°€ê²© : %d \n", itemList->totalPrice);
     for ( i = 0; i < itemList->idxOfFoods; i++) {
         printf("%s \n", itemList->foods[i]);
     }
     printf("\n");
 }
 
-// ÁÖ¹® ÇÔ¼ö
+// ì£¼ë¬¸ í•¨ìˆ˜
 int order(ItemList *itemList) {
-    /* ÁÖ¹®ÇÑ ÀüÃ¼ °¡°ÝÀ» Ãâ·ÂÇÑ ÈÄ, ÁÖ¹® ¿©ºÎ ÀçÈ®ÀÎ
-       Áï, ÃÖÁ¾ ÁÖ¹® ¿©ºÎ¸¦ True(1), False(0)·Î ¹ÝÈ¯ 
+    /* ì£¼ë¬¸í•œ ì „ì²´ ê°€ê²©ì„ ì¶œë ¥í•œ í›„, ì£¼ë¬¸ ì—¬ë¶€ ìž¬í™•ì¸
+       ì¦‰, ìµœì¢… ì£¼ë¬¸ ì—¬ë¶€ë¥¼ True(1), False(0)ë¡œ ë°˜í™˜ 
     */
     if( itemList->idxOfFoods <= 0 ) {
-        puts("¼±ÅÃÇÑ À½·á°¡ ¾ø½À´Ï´Ù.");
+        puts("ì„ íƒí•œ ìŒë£Œê°€ ì—†ìŠµë‹ˆë‹¤.");
         return -1;
     }
 
     int choice;
     checkMenu(itemList);
-    puts("Á¤¸»·Î ÁÖ¹®ÇÏ½Ã°Ú½À´Ï±î?");
+    puts("ì •ë§ë¡œ ì£¼ë¬¸í•˜ì‹œê² ìŠµë‹ˆê¹Œ?");
 
-    printf("1. ³×, 2. ¾Æ´Ï¿À : ");
+    printf("1. ë„¤, 2. ì•„ë‹ˆì˜¤ : ");
     scanf("%d", &choice);
 
     if( choice == 1 ) return True;

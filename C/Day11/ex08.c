@@ -2,14 +2,14 @@
 #include <string.h>
 
 /* 
-    ¹®ÀÚ¿­ Ã³¸®ÇÔ¼ö
-    : ¹®ÀÚ¿­ ±æÀÌ, ¹®ÀÚ¿­ º¹»ç/°áÇÕ/ºñ±³ µîÀÇ ±â´ÉÀ» »ç¿ëÇÏ´Â ÇÔ¼ö
-    - string.h Çì´õÆÄÀÏ¿¡ Á¤ÀÇµÇ¾î ÀÖ´Ù.
+    ë¬¸ìì—´ ì²˜ë¦¬í•¨ìˆ˜
+    : ë¬¸ìì—´ ê¸¸ì´, ë¬¸ìì—´ ë³µì‚¬/ê²°í•©/ë¹„êµ ë“±ì˜ ê¸°ëŠ¥ì„ ì‚¬ìš©í•˜ëŠ” í•¨ìˆ˜
+    - string.h í—¤ë”íŒŒì¼ì— ì •ì˜ë˜ì–´ ìˆë‹¤.
 
-    * Á¾·ù
-    strlen(¹®ÀÚ¿­)                  : ¹®ÀÚ¿­ÀÇ ±æÀÌ¸¦ ¹İÈ¯
-    strcpy(str1, str2)              : str2 ¸¦ str1 ¿¡ º¹»ç
-    strncpy(str1, str2, count)      : str2 ¸¦ str1 ¿¡ count°³¼ö ¸¸Å­ º¹»ç
+    * ì¢…ë¥˜
+    strlen(ë¬¸ìì—´)                  : ë¬¸ìì—´ì˜ ê¸¸ì´ë¥¼ ë°˜í™˜
+    strcpy(str1, str2)              : str2 ë¥¼ str1 ì— ë³µì‚¬
+    strncpy(str1, str2, count)      : str2 ë¥¼ str1 ì— countê°œìˆ˜ ë§Œí¼ ë³µì‚¬
 
 */
 int main(void) {
@@ -18,14 +18,14 @@ int main(void) {
     char str2[50] = "berry is good";
     char str3[50];
 
-    // °¢ ¹®ÀÚ¿­ÀÇ ±æÀÌ
-    printf("str1 ÀÇ ±æÀÌ %d \n", strlen(str1));
-    printf("str2 ÀÇ ±æÀÌ %d \n", strlen(str2));
+    // ê° ë¬¸ìì—´ì˜ ê¸¸ì´
+    printf("str1 ì˜ ê¸¸ì´ %d \n", strlen(str1));
+    printf("str2 ì˜ ê¸¸ì´ %d \n", strlen(str2));
 
-    // str1À» str3 ¿¡ º¹»çÇÏ±â
+    // str1ì„ str3 ì— ë³µì‚¬í•˜ê¸°
     strcpy(str3, str1);
 
-    // str1ÀÇ ³»¿ë Áß 5±ÛÀÚ¸¸ str2 ¿¡ º¹»çÇÏ±â
+    // str1ì˜ ë‚´ìš© ì¤‘ 5ê¸€ìë§Œ str2 ì— ë³µì‚¬í•˜ê¸°
     strncpy(str2, str1, 5);
 
     printf("str1 : %s\n", str1);

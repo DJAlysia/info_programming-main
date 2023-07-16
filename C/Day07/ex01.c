@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int main(void) {
-    // 1~10 ±îÁö ÇÕ°è¸¦ ±¸ÇÏ½Ã¿À.
+    // 1~10 ê¹Œì§€ í•©ê³„ë¥¼ êµ¬í•˜ì‹œì˜¤.
     int i = 1;
     int sum = 0;
 
@@ -17,6 +17,6 @@ int main(void) {
         // sum + 1+2+3+..+10;
     }
     
-    printf("ÇÕ°è : %d\n", sum);
+    printf("í•©ê³„ : %d\n", sum);
     return 0;
 }

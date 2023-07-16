@@ -3,24 +3,24 @@
 int main(void) {
     
     int score;
-    printf("Á¡¼ö : ");
+    printf("ì ìˆ˜ : ");
     scanf("%d", &score);
 
     switch (score) {
         case 100:
         case 90:
-                    printf("¼ºÀûÀº A ÀÔ´Ï´Ù.");
+                    printf("ì„±ì ì€ A ì…ë‹ˆë‹¤.");
                     break;
         case 80:
         case 70:
-                    printf("¼ºÀûÀº B ÀÔ´Ï´Ù.");
+                    printf("ì„±ì ì€ B ì…ë‹ˆë‹¤.");
                     break;
         case 60:
         case 50:
-                    printf("¼ºÀûÀº C ÀÔ´Ï´Ù.");
+                    printf("ì„±ì ì€ C ì…ë‹ˆë‹¤.");
                     break;
     
-        default:    printf("¼ºÀûÀº F ÀÔ´Ï´Ù.");
+        default:    printf("ì„±ì ì€ F ì…ë‹ˆë‹¤.");
                     break;
     }
 

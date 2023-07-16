@@ -1,8 +1,8 @@
 #include <stdio.h>
 
-// Àü¿ª º¯¼ö
-// : ÇÔ¼ö ¿ÜºÎ¿¡ ¼±¾ðÇÑ º¯¼ö
-//  - ÇÔ¼ö ³»ºÎ/¿ÜºÎ ¸ðµç ¿µ¿ª¿¡¼­ Á¢±ÙÇÒ ¼ö ÀÖ´Ù.
+// ì „ì—­ ë³€ìˆ˜
+// : í•¨ìˆ˜ ì™¸ë¶€ì— ì„ ì–¸í•œ ë³€ìˆ˜
+//  - í•¨ìˆ˜ ë‚´ë¶€/ì™¸ë¶€ ëª¨ë“  ì˜ì—­ì—ì„œ ì ‘ê·¼í•  ìˆ˜ ìžˆë‹¤.
 int X = 500;
 int Y = 1000;
 
@@ -16,16 +16,16 @@ void sample() {
 
 int main(void) {
   
-    // Áö¿ªº¯¼ö
-    // : ÇÔ¼ö ³»ºÎ¿¡ ¼±¾ðÇÑ º¯¼ö
-    //  - ÇÔ¼ö ³»ºÎ¿¡¼­¸¸ Á¢±Ù °¡´É, ¿ÜºÎ¿¡¼­´Â Á¢±Ù ºÒ°¡
-    // A = 300;  (Á¢±Ù ÇÒ ¼ö ¾ø´Ù.)
+    // ì§€ì—­ë³€ìˆ˜
+    // : í•¨ìˆ˜ ë‚´ë¶€ì— ì„ ì–¸í•œ ë³€ìˆ˜
+    //  - í•¨ìˆ˜ ë‚´ë¶€ì—ì„œë§Œ ì ‘ê·¼ ê°€ëŠ¥, ì™¸ë¶€ì—ì„œëŠ” ì ‘ê·¼ ë¶ˆê°€
+    // A = 300;  (ì ‘ê·¼ í•  ìˆ˜ ì—†ë‹¤.)
     // printf("A : %d\n", A);
-    printf("main ÇÔ¼ö ¿¡¼­ X, Y Á¢±Ù\n");
+    printf("main í•¨ìˆ˜ ì—ì„œ X, Y ì ‘ê·¼\n");
     printf("X : %d\n", X);
     printf("Y : %d\n", Y);
     
-    printf("sample ÇÔ¼ö ¿¡¼­ X, Y Á¢±Ù\n");
+    printf("sample í•¨ìˆ˜ ì—ì„œ X, Y ì ‘ê·¼\n");
     sample();
 
     return 0;

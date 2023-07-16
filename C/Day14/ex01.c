@@ -2,34 +2,34 @@
 
 int main(void) {
   
-    // ÆÄÀÏ ¿­±â
-    FILE *fp;           // FILE ±¸Á¶Ã¼ Æ÷ÀÎÅÍ º¯¼ö ¼±¾ð
+    // íŒŒì¼ ì—´ê¸°
+    FILE *fp;           // FILE êµ¬ì¡°ì²´ í¬ì¸í„° ë³€ìˆ˜ ì„ ì–¸
     char ch;
     
-    // fopen("°æ·Î/ÆÄÀÏÀÌ¸§", "¸ðµå");
-    // - ¸ðµå : r(ÀÐ±â), w(¾²±â), a(Ãß°¡)
-    // - ÆÄÀÏ ÀÐ±â ½ÇÆÐ : NULL ¹ÝÈ¯
+    // fopen("ê²½ë¡œ/íŒŒì¼ì´ë¦„", "ëª¨ë“œ");
+    // - ëª¨ë“œ : r(ì½ê¸°), w(ì“°ê¸°), a(ì¶”ê°€)
+    // - íŒŒì¼ ì½ê¸° ì‹¤íŒ¨ : NULL ë°˜í™˜
     fp = fopen("test.txt", "r");
     if( fp == NULL ) {
-        printf("ÆÄÀÏ ÀÐ±â ½ÇÆÐ!\n");
+        printf("íŒŒì¼ ì½ê¸° ì‹¤íŒ¨!\n");
         return 1;
     } 
 
-    printf("ÆÄÀÏ ¿­±â ¼º°ø\n");
+    printf("íŒŒì¼ ì—´ê¸° ì„±ê³µ\n");
 
-    // ÅØ½ºÆ® ÆÄÀÏÀÇ ³»¿ë °¡Á®¿À±â
+    // í…ìŠ¤íŠ¸ íŒŒì¼ì˜ ë‚´ìš© ê°€ì ¸ì˜¤ê¸°
     while(1) {
-        // fgetc() : ¹®ÀÚ ÀÔ·Â ÇÔ¼ö
-        // - ÆÄÀÏ¿¡¼­ ÇÏ³ªÀÇ ¹®ÀÚ¸¦ ÀÔ·Â¹Þ¾Æ ¹ÝÈ¯ÇÏ´Â ÇÔ¼ö
+        // fgetc() : ë¬¸ìž ìž…ë ¥ í•¨ìˆ˜
+        // - íŒŒì¼ì—ì„œ í•˜ë‚˜ì˜ ë¬¸ìžë¥¼ ìž…ë ¥ë°›ì•„ ë°˜í™˜í•˜ëŠ” í•¨ìˆ˜
         ch = fgetc(fp);
-        // EOF : ÆÄÀÏÀÇ ¸¶Áö¸·À» ÀÇ¹Ì
+        // EOF : íŒŒì¼ì˜ ë§ˆì§€ë§‰ì„ ì˜ë¯¸
         if( ch == EOF ) {
             break;
         }
-        putchar(ch);        // ¹®ÀÚ Ãâ·Â ÇÔ¼ö
+        putchar(ch);        // ë¬¸ìž ì¶œë ¥ í•¨ìˆ˜
     }
 
-    // ÆÄÀÏ ´Ý±â
+    // íŒŒì¼ ë‹«ê¸°
     fclose(fp);
 
     return 0;

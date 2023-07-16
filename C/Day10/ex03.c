@@ -7,14 +7,14 @@ void func(int a, int b) {
 
 int main(void) {
     int a = 10, b = 20;
-    printf("func() ÇÔ¼ö È£Ãâ Àü\n");
+    printf("func() í•¨ìˆ˜ í˜¸ì¶œ ì „\n");
     printf("a : %d, b : %d\n", a, b);
 
-    // °ª¿¡ ÀÇÇÑ Àü´Ş( call by value )
-    // º¯¼ö°¡ °¡Áø °ªÀ» º¹»çÇØ¼­ ¸Å°³º¯¼ö·Î Àü´Ş
+    // ê°’ì— ì˜í•œ ì „ë‹¬( call by value )
+    // ë³€ìˆ˜ê°€ ê°€ì§„ ê°’ì„ ë³µì‚¬í•´ì„œ ë§¤ê°œë³€ìˆ˜ë¡œ ì „ë‹¬
     func(a, b);
 
-    printf("func() ÇÔ¼ö È£Ãâ\n");
+    printf("func() í•¨ìˆ˜ í˜¸ì¶œ\n");
     printf("a : %d, b : %d\n", a, b);
     return 0;
 }

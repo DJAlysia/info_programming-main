@@ -1,5 +1,5 @@
 #include <stdio.h>
-// ÇÔ¼ö ¼±¾ğ
+// í•¨ìˆ˜ ì„ ì–¸
 void print_char(char ch, int count);
 
 int main(void) {
@@ -9,14 +9,14 @@ int main(void) {
     return 0;
 }
 
-// ¹İÈ¯Å¸ÀÔÀÌ ¾ø´Â ÇÔ¼ö
-// ÀÔ·Â¹ŞÀº ¹®ÀÚ ch ¸¦ count ¹ø Ãâ·ÂÇÏ´Â ÇÔ¼ö
+// ë°˜í™˜íƒ€ì…ì´ ì—†ëŠ” í•¨ìˆ˜
+// ì…ë ¥ë°›ì€ ë¬¸ì ch ë¥¼ count ë²ˆ ì¶œë ¥í•˜ëŠ” í•¨ìˆ˜
 void print_char(char ch, int count) {
     int i;
 
     for (int i = 0; i < count; i++) {
         printf("%c", ch);
     }
-    // ¹İÈ¯Å¸ÀÔÀÌ ¾øÀ» ¶§, 
-    // return À» »ç¿ëÇÏÁö ¾Ê¾Æµµ µÈ´Ù.
+    // ë°˜í™˜íƒ€ì…ì´ ì—†ì„ ë•Œ, 
+    // return ì„ ì‚¬ìš©í•˜ì§€ ì•Šì•„ë„ ëœë‹¤.
 }

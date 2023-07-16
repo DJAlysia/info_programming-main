@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-// void : ¹İÈ¯Å¸ÀÔÀÌ ¾ø´Â °ÍÀ» ÀÇ¹Ì
+// void : ë°˜í™˜íƒ€ì…ì´ ì—†ëŠ” ê²ƒì„ ì˜ë¯¸
 void coffe( int water,  int coffe, int temp ) {
     water *= 2;
     coffe -= 5;
@@ -8,8 +8,8 @@ void coffe( int water,  int coffe, int temp ) {
     int result = water + coffe + temp;
     cup1++;
 
-    printf("ÁÖ¹® µÈ Ä¿ÇÇ´Â %d ÀÔ´Ï´Ù.\n", result);
-    printf("ÁÖ¹® µÈ Ä¿ÇÇ °³¼ö´Â %d ÀÔ´Ï´Ù.\n", cup1);
+    printf("ì£¼ë¬¸ ëœ ì»¤í”¼ëŠ” %d ì…ë‹ˆë‹¤.\n", result);
+    printf("ì£¼ë¬¸ ëœ ì»¤í”¼ ê°œìˆ˜ëŠ” %d ì…ë‹ˆë‹¤.\n", cup1);
     printf("\n");
 }
 
@@ -20,8 +20,8 @@ void juice( int water, int fruit ) {
     int result = water + fruit;
     cup2++;
 
-    printf("ÁÖ¹® µÈ ÁÖ½º´Â %d ÀÔ´Ï´Ù.\n", result);
-    printf("ÁÖ¹® µÈ ÁÖ½º °³¼ö´Â %d ÀÔ´Ï´Ù.\n", cup2);
+    printf("ì£¼ë¬¸ ëœ ì£¼ìŠ¤ëŠ” %d ì…ë‹ˆë‹¤.\n", result);
+    printf("ì£¼ë¬¸ ëœ ì£¼ìŠ¤ ê°œìˆ˜ëŠ” %d ì…ë‹ˆë‹¤.\n", cup2);
     printf("\n");
 }
 

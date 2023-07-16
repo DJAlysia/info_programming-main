@@ -1,23 +1,23 @@
 #include <stdio.h>
-#include <stdlib.h>     // µ¿Àû ÇÒ´ç ÇÔ¼ö°¡ Á¤ÀÇµÇ¾î ÀÖÀ½
+#include <stdlib.h>     // ë™ì  í• ë‹¹ í•¨ìˆ˜ê°€ ì •ì˜ë˜ì–´ ìžˆìŒ
 
 /*
     malloc(size)
-    : ¸Þ¸ð¸®¸¦ size(byte) ¸¸Å­ µ¿ÀûÀ¸·Î ÇÒ´çÇÏ´Â ÇÔ¼ö
-    - ÇÒ´çµÈ ¸Þ¸ð¸® °ø°£ÀÇ ÁÖ¼Ò°ªÀ» ¹ÝÈ¯ (void*)
-    - ¹ÝÈ¯µÈ ÁÖ¼Ò°ªÀ» Æ÷ÀÎÅÍ º¯¼ö·Î ÀúÀåÇÏ±â À§ÇØ¼­
-      °­Á¦ Çüº¯È¯À» ¸í½ÃÇØ¾ßÇÑ´Ù.
+    : ë©”ëª¨ë¦¬ë¥¼ size(byte) ë§Œí¼ ë™ì ìœ¼ë¡œ í• ë‹¹í•˜ëŠ” í•¨ìˆ˜
+    - í• ë‹¹ëœ ë©”ëª¨ë¦¬ ê³µê°„ì˜ ì£¼ì†Œê°’ì„ ë°˜í™˜ (void*)
+    - ë°˜í™˜ëœ ì£¼ì†Œê°’ì„ í¬ì¸í„° ë³€ìˆ˜ë¡œ ì €ìž¥í•˜ê¸° ìœ„í•´ì„œ
+      ê°•ì œ í˜•ë³€í™˜ì„ ëª…ì‹œí•´ì•¼í•œë‹¤.
 */
 
 int main(void) {
     
-    // int ÇüÀÇ ¸Þ¸ð¸®°ø°£ 5°³ (4x5Byte)¸¦ ÇÒ´ç
+    // int í˜•ì˜ ë©”ëª¨ë¦¬ê³µê°„ 5ê°œ (4x5Byte)ë¥¼ í• ë‹¹
     int *ptr = (int *) malloc( sizeof(int) * 5 );
 
-    // double ÇüÀÇ ¸Þ¸ð¸®°ø°£ 3°³ (8x3Byte)¸¦ ÇÒ´ç
+    // double í˜•ì˜ ë©”ëª¨ë¦¬ê³µê°„ 3ê°œ (8x3Byte)ë¥¼ í• ë‹¹
     double *dptr = (double *) malloc( sizeof(double) * 3 );
 
-    // ÃÊ±âÈ­
+    // ì´ˆê¸°í™”
     for (int i = 0; i < 5; i++) {
         ptr[i] = (i+1) * 10;            // 10 20 30 40 50
     }
@@ -26,7 +26,7 @@ int main(void) {
         dptr[i] = (i+1) * 1.5;            // 1.5, 3.0, 4.5
     }
 
-    // Ãâ·Â
+    // ì¶œë ¥
     for (int i = 0; i < 5; i++) {
        printf("%d ", ptr[i]);
     }
@@ -37,8 +37,8 @@ int main(void) {
     }
     printf("\n");
 
-    // free(Æ÷ÀÎÅÍ)     : µ¿Àû ÇÒ´çÇÑ ¸Þ¸ð¸® °ø°£À» ÇØÁ¦ÇÏ´Â ÇÔ¼ö
-    // Èü¿µ¿ª¿¡ ÇÒ´çµÈ ¸Þ¸ð¸®¸¦ ÇØÁ¦
+    // free(í¬ì¸í„°)     : ë™ì  í• ë‹¹í•œ ë©”ëª¨ë¦¬ ê³µê°„ì„ í•´ì œí•˜ëŠ” í•¨ìˆ˜
+    // íž™ì˜ì—­ì— í• ë‹¹ëœ ë©”ëª¨ë¦¬ë¥¼ í•´ì œ
     if( ptr != NULL ) {
         free(ptr);
     }    

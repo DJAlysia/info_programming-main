@@ -1,13 +1,13 @@
 #include <stdio.h>
 
-// ÇÔ¼ö ¼±¾ğ
+// í•¨ìˆ˜ ì„ ì–¸
 double plus(double a, double b);
 double minus(double a, double b);
 double mul(double a, double b);
 double div(double a, double b);
 
 int main(void) {
-    // double À» ÀÔ/Ãâ·Â »ç¿ë Çü½Ä¹®ÀÚ : %lf
+    // double ì„ ì…/ì¶œë ¥ ì‚¬ìš© í˜•ì‹ë¬¸ì : %lf
     double a, b;
     printf("a : ");
     scanf("%lf", &a);
@@ -23,7 +23,7 @@ int main(void) {
     return 0;
 }
 
-// ÇÔ¼ö Á¤ÀÇ
+// í•¨ìˆ˜ ì •ì˜
 
 double plus(double a, double b) {
     double result = a + b;

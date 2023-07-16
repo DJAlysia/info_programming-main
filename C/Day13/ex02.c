@@ -1,24 +1,24 @@
 #include <stdio.h>
 #include <string.h>
 
-// ±¸Á¶Ã¼ Á¤ÀÇ
+// êµ¬ì¡°ì²´ ì •ì˜
 struct person {
-    // ÀÌ¸§, ³ªÀÌ
+    // ì´ë¦„, ë‚˜ì´
     char name[30];
     int age;
 };
 
 int main(void) {
     
-    // ±¸Á¶Ã¼ ¼±¾ğ
-    // ±¸Á¶Ã¼ º¯¼ö ÃÊ±âÈ­
-    // ¸â¹öº¯¼öÀÇ ¼ø¼­´ë·Î {} ¾È¿¡ °ªÀ» ´ëÀÔ
-    struct person boy = {"±èÄÚµù", 20}; 
-    struct person girl = {"ÀÌÄÚµù", 10}; 
+    // êµ¬ì¡°ì²´ ì„ ì–¸
+    // êµ¬ì¡°ì²´ ë³€ìˆ˜ ì´ˆê¸°í™”
+    // ë©¤ë²„ë³€ìˆ˜ì˜ ìˆœì„œëŒ€ë¡œ {} ì•ˆì— ê°’ì„ ëŒ€ì…
+    struct person boy = {"ê¹€ì½”ë”©", 20}; 
+    struct person girl = {"ì´ì½”ë”©", 10}; 
 
-    // Ãâ·Â
-    printf("boy ÀÇ ÀÌ¸§Àº %s, ³ªÀÌ´Â %d \n", boy.name, boy.age);
-    printf("girl ÀÇ ÀÌ¸§Àº %s, ³ªÀÌ´Â %d \n", girl.name, girl.age);
+    // ì¶œë ¥
+    printf("boy ì˜ ì´ë¦„ì€ %s, ë‚˜ì´ëŠ” %d \n", boy.name, boy.age);
+    printf("girl ì˜ ì´ë¦„ì€ %s, ë‚˜ì´ëŠ” %d \n", girl.name, girl.age);
 
     return 0;
 }

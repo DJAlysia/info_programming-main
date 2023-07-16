@@ -3,17 +3,17 @@
 int main(void) {
     
     int num;
-    printf("Á¤¼ö ÀÔ·Â : ");
+    printf("ì •ìˆ˜ ì…ë ¥ : ");
     scanf("%d", &num);
 
     if( num < 3 )
-        printf("º¯¼ö num Àº 3º¸´Ù ÀÛ½À´Ï´Ù. \n");
+        printf("ë³€ìˆ˜ num ì€ 3ë³´ë‹¤ ì‘ìŠµë‹ˆë‹¤. \n");
 
     if( num == 3 )
-        printf("º¯¼ö num Àº 3 ÀÔ´Ï´Ù. \n");
+        printf("ë³€ìˆ˜ num ì€ 3 ì…ë‹ˆë‹¤. \n");
 
     if( num > 3 )
-        printf("º¯¼ö num Àº 3º¸´Ù Å®´Ï´Ù. \n");
+        printf("ë³€ìˆ˜ num ì€ 3ë³´ë‹¤ í½ë‹ˆë‹¤. \n");
 
     return 0;
 }

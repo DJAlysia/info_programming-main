@@ -2,37 +2,37 @@
 #include <stdlib.h>
 
 int main(void) {
-    // ÇÒ´çµÈ ¸Þ¸ð¸® ÁÖ¼Ò°ªÀ» ÀúÀåÇÒ Æ÷ÀÎÅÍ
+    // í• ë‹¹ëœ ë©”ëª¨ë¦¬ ì£¼ì†Œê°’ì„ ì €ìž¥í•  í¬ì¸í„°
     int *ptr;
-    // ÀÔ·Â µ¥ÀÌÅÍ °³¼ö
+    // ìž…ë ¥ ë°ì´í„° ê°œìˆ˜
     int count = 0;
-    // ÇÒ´ç¹ÞÀº ¸Þ¸ð¸® Å©±â
+    // í• ë‹¹ë°›ì€ ë©”ëª¨ë¦¬ í¬ê¸°
     int maxSize = 3;
     int num;
 
-    // ¸Þ¸ð¸® µ¿Àû ÇÒ´ç
-    // calloc() ÇÔ¼ö
-    // : calloc( °³¼ö, Å©±â )
-    // ÇÒ´çÇÏ°íÀÚÇÏ´Â ¸Þ¸ð¸® °ø°£ÀÇ °³¼ö, ¸Þ¸ð¸® °ø°£º° Å©±â(byte)
-    // ÇÒ´ç¹ÞÀº ¸Þ¸ð¸® ÁÖ¼Ò°ªÀ» ¹ÝÈ¯ (*void)
-    // ÇÒ´çµÈ ¸Þ¸ð¸® °ø°£ÀÇ ¸ðµç ºñÆ®¸¦ 0À¸·Î ÃÊ±âÈ­
+    // ë©”ëª¨ë¦¬ ë™ì  í• ë‹¹
+    // calloc() í•¨ìˆ˜
+    // : calloc( ê°œìˆ˜, í¬ê¸° )
+    // í• ë‹¹í•˜ê³ ìží•˜ëŠ” ë©”ëª¨ë¦¬ ê³µê°„ì˜ ê°œìˆ˜, ë©”ëª¨ë¦¬ ê³µê°„ë³„ í¬ê¸°(byte)
+    // í• ë‹¹ë°›ì€ ë©”ëª¨ë¦¬ ì£¼ì†Œê°’ì„ ë°˜í™˜ (*void)
+    // í• ë‹¹ëœ ë©”ëª¨ë¦¬ ê³µê°„ì˜ ëª¨ë“  ë¹„íŠ¸ë¥¼ 0ìœ¼ë¡œ ì´ˆê¸°í™”
     ptr = (int*) calloc( maxSize, sizeof(int) );
 
     while(1) {
-        printf("Á¤¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä(Á¾·á:0) : ");
+        printf("ì •ìˆ˜ë¥¼ ìž…ë ¥í•˜ì„¸ìš”(ì¢…ë£Œ:0) : ");
         scanf("%d", &num);
         if( num == 0 )
             break;
         
-        // ¸Þ¸ð¸® °ø°£ÀÌ ÃÊ°úµÈ °æ¿ì, ÀçÇÒ´çÀ» ÅëÇÑ ¸Þ¸ð¸® ¿µ¿ª È®Àå
+        // ë©”ëª¨ë¦¬ ê³µê°„ì´ ì´ˆê³¼ëœ ê²½ìš°, ìž¬í• ë‹¹ì„ í†µí•œ ë©”ëª¨ë¦¬ ì˜ì—­ í™•ìž¥
         if( count == maxSize ) {
-            maxSize += maxSize; // 3 + 3, ¸Þ¸ð¸® »çÀÌÁî¸¦ 2¹è·Î
-            // ¸Þ¸ð¸® ÀçÇÒ´ç
-            // : realloc( ÇÒ´çÇÒ Æ÷ÀÎÅÍ, ÀçÇÒ´çÇÒ »çÀÌÁî )
+            maxSize += maxSize; // 3 + 3, ë©”ëª¨ë¦¬ ì‚¬ì´ì¦ˆë¥¼ 2ë°°ë¡œ
+            // ë©”ëª¨ë¦¬ ìž¬í• ë‹¹
+            // : realloc( í• ë‹¹í•  í¬ì¸í„°, ìž¬í• ë‹¹í•  ì‚¬ì´ì¦ˆ )
             ptr = (int*) realloc( ptr, maxSize * sizeof(int) );
         }
 
-        // ÀÔ·ÂÇÑ °ªÀ» ÀúÀå
+        // ìž…ë ¥í•œ ê°’ì„ ì €ìž¥
         ptr[count++] = num;
     }
 
@@ -42,7 +42,7 @@ int main(void) {
     printf("\n");
 
     if( ptr != NULL ) {
-        // ¸Þ¸ð¸® °ø°£ ÇØÁ¦
+        // ë©”ëª¨ë¦¬ ê³µê°„ í•´ì œ
         free(ptr);
     }
 

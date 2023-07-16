@@ -2,19 +2,19 @@
 
 int main(void) {
     
-    // 2Â÷¿ø ¹è¿­ ¼±¾ğ
+    // 2ì°¨ì› ë°°ì—´ ì„ ì–¸
     int arr[2][3] = { {1,2,3}, {4,5,6} };
 
-    // (int : 4byte) X (6°³) = 24 byte
-    printf("ÀüÃ¼ °³¼ö : %d\n", sizeof(arr) / sizeof(int) );         // ¹è¿­ ¿ä¼ÒÀÇ °³¼ö ±¸ÇÏ±â
-    printf("ÇàÀÇ °³¼ö : %d\n", sizeof(arr) / sizeof(arr[0]) );      // 1Â÷¿ø ¹è¿­ ¿ä¼ÒÀÇ °³¼ö
-    printf("¿­ÀÇ °³¼ö : %d\n", sizeof(arr[0]) / sizeof(int) );      // 2Â÷¿ø ¹è¿­ ¿ä¼ÒÀÇ °³¼ö
+    // (int : 4byte) X (6ê°œ) = 24 byte
+    printf("ì „ì²´ ê°œìˆ˜ : %d\n", sizeof(arr) / sizeof(int) );         // ë°°ì—´ ìš”ì†Œì˜ ê°œìˆ˜ êµ¬í•˜ê¸°
+    printf("í–‰ì˜ ê°œìˆ˜ : %d\n", sizeof(arr) / sizeof(arr[0]) );      // 1ì°¨ì› ë°°ì—´ ìš”ì†Œì˜ ê°œìˆ˜
+    printf("ì—´ì˜ ê°œìˆ˜ : %d\n", sizeof(arr[0]) / sizeof(int) );      // 2ì°¨ì› ë°°ì—´ ìš”ì†Œì˜ ê°œìˆ˜
 
     // sizeof(arr)      : 24 byte
     // sizeof(arr[0])   : 12 byte
     // sizeof(int)      : 4 byte
-    int row = sizeof(arr) / sizeof(arr[0]);         // ÇàÀÇ °³¼ö
-    int col = sizeof(arr[0]) / sizeof(int);         // ¿­ÀÇ °³¼ö 
+    int row = sizeof(arr) / sizeof(arr[0]);         // í–‰ì˜ ê°œìˆ˜
+    int col = sizeof(arr[0]) / sizeof(int);         // ì—´ì˜ ê°œìˆ˜ 
 
     for (int i = 0; i < row; i++) {
         for (int j = 0; j < col; j++) {

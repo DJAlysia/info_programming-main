@@ -2,7 +2,7 @@
 
 int main(void) {
     
-    int M, N;           // (MxN) 2Â÷¿ø ¹è¿­
+    int M, N;           // (MxN) 2Ã‚Ã·Â¿Ã¸ Â¹Ã¨Â¿Â­
     printf("M : ");
     scanf("%d", &M);
     
@@ -11,14 +11,14 @@ int main(void) {
 
     int arr[M][N];
 
-    // ÀÔ·Â 
+    // Ã€Ã”Â·Ã‚ 
     for (int i = 0; i < M; i++) {
         for (int j = 0; j < N; j++) {
             scanf("%d", &arr[i][j]);
         }
     }
 
-    // Ãâ·Â 
+    // ÃƒÃ¢Â·Ã‚ 
     for (int i = 0; i < M; i++) {
         for (int j = 0; j < N; j++) {
             printf("%d ", arr[i][j]);

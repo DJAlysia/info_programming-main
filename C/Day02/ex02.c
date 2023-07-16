@@ -2,15 +2,15 @@
 
 int main(void) {
 
-    short sh = 32767;       // short ÇüÀÇ ÃÖ´ñ°ªÀ¸·Î ÃÊ±âÈ­
-    int in = 2147483647;        // ¾à 21¾ïÀÇ ÃÖ´ñ°ªÀ» ´ãÀ» ¼ö ÀÖ´Ù.
+    short sh = 32767;       // short í˜•ì˜ ìµœëŒ“ê°’ìœ¼ë¡œ ì´ˆê¸°í™”
+    int in = 2147483647;        // ì•½ 21ì–µì˜ ìµœëŒ“ê°’ì„ ë‹´ì„ ìˆ˜ ìˆë‹¤.
     long ln = 2147483647;
     long long lln = 123451234512345;
 
     printf("sh : %d\n", sh);
     printf("in : %d\n", in);
-    printf("ln : %ld\n", ln);       // long ÇüÀÇ Çü½Ä¹®ÀÚ %ld
-    printf("lln : %lld\n", lln);    // long long ÇüÀÇ Çü½Ä¹®ÀÚ %lld
+    printf("ln : %ld\n", ln);       // long í˜•ì˜ í˜•ì‹ë¬¸ì %ld
+    printf("lln : %lld\n", lln);    // long long í˜•ì˜ í˜•ì‹ë¬¸ì %lld
   
     return 0;
 }

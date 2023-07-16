@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int main(void) {
-    // º¹ÇÕ ´ëÀÔ ¿¬»ê
+    // ÂºÂ¹Ã‡Ã• Â´Ã«Ã€Ã” Â¿Â¬Â»Ãª
     int x = 10;
     int y = 20;
 

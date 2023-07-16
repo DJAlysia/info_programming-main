@@ -3,29 +3,29 @@
 int main(void) {
      int score = 0;
     char grade = 'F';
-    printf("Á¡¼ö : ");
+    printf("ì ìˆ˜ : ");
     scanf("%d", &score);
 
-    // Á¡¼ö : 90~100
+    // ì ìˆ˜ : 90~100
     if( score >= 90 && score <= 100 ){
         grade = 'A';
     }
-    // Á¡¼ö : 80~89
+    // ì ìˆ˜ : 80~89
     else if( score >= 80 ){
         grade = 'B';
     }
-    // Á¡¼ö : 70~79
+    // ì ìˆ˜ : 70~79
     else if( score >= 70 ){
         grade = 'C';
     }
-    // Á¡¼ö : 60~69
+    // ì ìˆ˜ : 60~69
     else if( score >= 60 ){
         grade = 'D';
     }
-    // Á¡¼ö : ~60
+    // ì ìˆ˜ : ~60
     else {
         grade = 'F';
     }
-    printf("µî±ŞÀº %c ÀÔ´Ï´Ù.", grade);
+    printf("ë“±ê¸‰ì€ %c ì…ë‹ˆë‹¤.", grade);
     return 0;
 }
